@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from "./app.service";
 
 
 @Component({
@@ -11,18 +10,9 @@ export class AppComponent implements OnInit{
   inboundClick = true;
   title = 'Demo_Web_App';
 
-  public details: any = [];
-
-  constructor(private service: AppService) {}
+  constructor() {}
   ngOnInit(): void {
     
-  }
-
-  FetchUserDetails(): void {
-    this.service.getUsersDetails().subscribe(details => {
-      this.details = details;
-      console.log(details)
-    })
   }
 
 }

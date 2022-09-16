@@ -7,8 +7,4 @@ import { HttpClient } from "@angular/common/http";
 export class AppService {
 
   constructor(private http: HttpClient) { }
-
-  getUsersDetails() {
-    return this.http.get('https://jsonplaceholder.typicode.com/posts');
-  }
 }

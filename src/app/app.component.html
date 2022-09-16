@@ -1,21 +1,15 @@
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <div class="navbar">
 
-<div class="navbar">
-  <span class="icon"><img src="../assets/bars.svg" alt="bar"></span>
-  <span class="button" (click)="FetchUserDetails()">Fetch</span>
-</div>
+    <span class="icon"><img src="../assets/bars.svg" alt="bar"></span>
+    <nav>
+      <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page" class="link"><span class="button1">Home</span></a>
+    <a routerLink="/details" routerLinkActive="active" ariaCurrentWhenActive="page" class="link"><span class="button2">Fetch</span></a>
+    </nav>
+  </div>
 
 <div class="details">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<div class="w3-card-4 card" style="width:80%" *ngFor="let user of details">
-  <header class="w3-container w3-light-grey">
-    <h3>{{user.title}}</h3>
-  </header>
-  <div class="w3-container">
-    <p class="num">Id:{{user.id}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User Id:{{user.userId}}</p>
-    <hr>
-    <p>{{user.body.slice(0,130)}}......</p><br>
-  </div>
-  <button class="w3-button w3-block w3-dark-grey">View More</button>
+  <router-outlet></router-outlet>
 </div>
-</div>
+

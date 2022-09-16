@@ -1,0 +1,16 @@
+
+<div class="w3-card-4 card" style="width:80%" *ngFor="let user of details">
+  <header class="w3-container w3-light-grey">
+    <h3>{{user.title}}</h3>
+  </header>
+  <div class="w3-container">
+    <p class="num">Id:{{user.id}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User Id:{{user.userId}}</p>
+    <hr>
+    <p>{{user.body.slice(0,130)}}......</p><br>
+  </div>
+
+<nav>
+    <a [routerLink]="['/detail',user.id]" routerLinkActive="active" ariaCurrentWhenActive="page" class="link"><button class="w3-button w3-block w3-dark-grey viewdetail">View More</button></a>
+</nav>
+
+</div>
