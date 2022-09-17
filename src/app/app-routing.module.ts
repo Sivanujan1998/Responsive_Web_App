@@ -4,7 +4,7 @@ import { FetchdetailsComponent } from '../app/fetchdetails/fetchdetails.componen
 import { UserdetailComponent } from './userdetail/userdetail.component';
 
 const routes: Routes = [
-  { path: 'detail', component: UserdetailComponent},
+  { path: 'detail/:id', component: UserdetailComponent},
   { path: 'details', component: FetchdetailsComponent},
 ];
 

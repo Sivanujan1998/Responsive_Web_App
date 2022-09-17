@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { FetchDetailsSevice, Detail } from "../fetchdetails/fetchdetails.service";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-userdetail',
@@ -8,14 +9,19 @@ import { FetchDetailsSevice, Detail } from "../fetchdetails/fetchdetails.service
   styleUrls: ['./userdetail.component.css']
 })
 export class UserdetailComponent implements OnInit {
-  public detail:Detail | undefined;
+  
+  public details: any = [];
+  public user:any = {}
+  public id: string | null | undefined
 
-  constructor(private route: ActivatedRoute,private router: Router,private detailsService: FetchDetailsSevice) { }
+  constructor(private activateroute: ActivatedRoute, private service:FetchDetailsSevice,private http: HttpClient) { }
+
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      this.detail = this.detailsService.getById(+params['id']);
-    });
-   
+    this.id = this.activateroute.snapshot.params['id'];
+    this.service.getUsersDetails().subscribe(details => {
+      this.details = details;
+      this.user = this.details.find((i: { id: any; }) => i.id == this.id)
+    })
+    }  
   }
-}
 

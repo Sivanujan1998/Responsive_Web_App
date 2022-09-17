@@ -1,0 +1,15 @@
+.content{
+    border: 2px solid blue;
+    width: 80%;
+    margin: auto auto auto auto;
+    padding: 10px 10px 10px 10px;
+}
+
+.table .heading{
+width: 10%;
+color: red;
+}
+.caption{
+    text-decoration: underline;
+    text-align: center;
+}

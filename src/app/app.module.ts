@@ -10,7 +10,7 @@ import { FetchdetailsComponent } from './fetchdetails/fetchdetails.component';
   declarations: [
     AppComponent,
     UserdetailComponent,
-    FetchdetailsComponent
+    FetchdetailsComponent,
   ],
   imports: [
     BrowserModule,
