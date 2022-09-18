@@ -2,23 +2,21 @@
 <div class="title">Stop Watch</div>
 
     <div class="label">
-    <form>
-    <input type="number" class="input" readonly disabled/>
-    <input type="number" class="input" readonly disabled/>
-    <input type="number" class="input" readonly disabled/>
-    <input type="number" class="input" readonly disabled/>
-    </form>
-    </div>
-    <div class="label">
-        <div class="head">D</div>
-        <div class="head">H</div>
-        <div class="head">M</div>
-        <div class="head">S</div>
+        <p class="time">{{ stopWatch | async }}</p>
     </div>
 <br/>
     <div class="buttons">
-        <span class="button"><button class="start">Start</button></span>
-        <span class="button"><button class="stop">Stop</button></span>
-        <span class="button"><button  class="reset">Reset</button></span>
+        <span class="button">
+            <input
+            type="button"
+            id="start-button" 
+            class="start"
+            type="button"
+            (mouseup)="handleStarter()"
+            [ngClass]="starterStopper?.value ? pauser?.value ? 'default' : 'pause' : 'default'"
+            [value]="starterStopper?.value ? pauser?.value ? 'Resume' : 'Pause' : 'Start'"
+            /></span>
+        <!-- <span class="button"><button id="stop-button" class="stop">Stop</button></span> -->
+        <span class="button"><button id="reset-button" class="reset">Reset</button></span>
     </div>
 </div>
