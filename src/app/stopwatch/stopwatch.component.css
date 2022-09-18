@@ -147,3 +147,9 @@
   .time{
     font-size: 80px;
   }
+
+  .laps{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 30px;
+  }

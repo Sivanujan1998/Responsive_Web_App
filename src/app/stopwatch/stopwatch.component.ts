@@ -36,6 +36,8 @@ export class StopwatchComponent implements OnInit, OnDestroy {
   pauser = new BehaviorSubject<boolean>(false);
   starterStopper = new BehaviorSubject<boolean>(false);
   stopWatch = new BehaviorSubject<string>('00:00:00');
+  laps : string[] = [];
+
 
   ngOnInit() {
     timerWithPause(this.starterStopper, this.pauser, 100).subscribe({
@@ -77,6 +79,18 @@ export class StopwatchComponent implements OnInit, OnDestroy {
     return `${dDisplay}${hDisplay}${mDisplay}${sDisplay}${msDisplay}`;
   }
 
+  handleLapper() {
+    if (this.starterStopper.value) {
+      if (this.pauser.value) {
+        this.starterStopper.next(false);
+        this.pauser.next(false);
+        this.laps = [];
+        this.stopWatch.next('00:00:00');
+      } else {
+        this.laps = [...this.laps, this.stopWatch.value];
+      }
+    }
+  }
   ngOnDestroy() {
     this.starterStopper.complete();
     this.pauser.complete();

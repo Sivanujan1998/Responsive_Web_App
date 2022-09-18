@@ -17,6 +17,23 @@
             [value]="starterStopper?.value ? pauser?.value ? 'Resume' : 'Pause' : 'Start'"
             /></span>
         <!-- <span class="button"><button id="stop-button" class="stop">Stop</button></span> -->
-        <span class="button"><button id="reset-button" class="reset">Reset</button></span>
+        <span class="button">        
+            <input
+            id="lapper"
+            type="button"
+            class="reset"
+            [disabled]="!starterStopper?.value"
+            (mouseup)="handleLapper()"
+            [ngClass]="pauser?.value ? 'reset' : starterStopper?.value ? 'default' : 'disable'"
+            [value]="pauser?.value ? 'Reset' : 'Lap'"
+          /></span>
     </div>
+</div>
+
+<div class="laps">
+<ng-container *ngIf="laps.length">
+	<p *ngFor="let lap of laps; let i=index">
+		{{ (i+1)+'.'+' '+lap }}<br>
+  </p>
+</ng-container>
 </div>
